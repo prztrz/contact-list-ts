@@ -1,3 +1,26 @@
+# TODO
+
+Please do not fork the repo, clone it instead.
+
+Definition of done:
+
+1. Fetch contacts using `apiData` function.
+2. Handle loading state, display some kind of spinner / loader.
+3. Handle error state. Add possibility to refetch contacts.
+4. Each contact information card should be selectable.
+5. Selected contacts have outline around them.
+6. Selected card can be deselected.
+7. Reorder selected contacts to the top of the list.
+8. List does not have performance issues when selecting cards.
+
+Doing this task in typescript is welcome. However if you do not feel comfortable with typescript, please change file extension to js.
+
+Optional: If you feel like like it please add some functional / unit tests with testing library of your choice.
+
+Good luck and do not hesitate to ask in case of any questions!
+
+---
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
