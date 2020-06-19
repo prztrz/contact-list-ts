@@ -11,7 +11,31 @@ function App() {
   const [isLoading, setLoading] = React.useState(false);
   const [isError, setError] = React.useState(false);
 
-  //  TODO fetch contacts using apiData function, handle loading and error states
+  const fetchData = React.useCallback(async () => {
+    if (isLoading) {
+      return;
+    }
+
+    setError(false);
+    setLoading(true);
+
+    try {
+      const response = await apiData();
+
+      setData(response);
+    } catch (e) {
+      console.error(e);
+      setError(true);
+    }
+
+    setLoading(false);
+  }, [isLoading]);
+
+  React.useEffect(() => {
+    if (!data.length && !isError && !isLoading) {
+      fetchData();
+    }
+  }, [data.length, fetchData, isError, isLoading]);
 
   return (
     <main className="App">
@@ -19,7 +43,7 @@ function App() {
 
       <section>
         {isLoading && <Loader />}
-        {isError && !isLoading && <ErrorAlert />}
+        {isError && !isLoading && <ErrorAlert onTryAgain={fetchData} />}
         {!isLoading && (
           <ul className="list">
             {data.map(personInfo => (

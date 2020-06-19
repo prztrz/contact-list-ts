@@ -3,7 +3,14 @@ import "./Loader.css";
 
 const Loader = () => (
   <div className="loader" aria-busy="true">
-    {Array(8).fill(<div />)}
+    <div />
+    <div />
+    <div />
+    <div />
+    <div />
+    <div />
+    <div />
+    <div />
   </div>
 );
 
