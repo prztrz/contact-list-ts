@@ -9,15 +9,18 @@ function App() {
   //  TODO fetch contacts using apiData function, handle loading and error states
 
   return (
-    <div className="App">
-      <div className="selected">Selected contacts: {selected.length}</div>
-      <div className="list">
-        {data.map((personInfo) => (
-          // @ts-ignore
-          <PersonInfo key={personInfo.id} data={personInfo} />
-        ))}
-      </div>
-    </div>
+    <main className="App">
+      <aside className="selected">Selected contacts: {selected.length}</aside>
+
+      <section>
+        <ul className="list">
+          {data.map(personInfo => (
+            // @ts-ignore
+            <PersonInfo key={personInfo.id} data={personInfo} />
+          ))}
+        </ul>
+      </section>
+    </main>
   );
 }
 
