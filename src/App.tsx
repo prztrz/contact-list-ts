@@ -3,10 +3,11 @@ import apiData from "./api";
 import PersonInfo from "./PersonInfo";
 import Loader from "./components/Loader/Loader";
 import ErrorAlert from "./components/ErrorAlert/ErrorAlert";
+import { Datum } from "./types";
 
 function App() {
-  const [data, setData] = React.useState([]);
-  const [selected, setSelected] = React.useState([]);
+  const [data, setData] = React.useState<Datum[]>([]);
+  const [selected, setSelected] = React.useState<Datum[]>([]);
   const [isLoading, setLoading] = React.useState(false);
   const [isError, setError] = React.useState(false);
 
