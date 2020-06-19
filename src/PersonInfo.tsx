@@ -1,14 +1,18 @@
 import React from "react";
+import cn from "classnames";
 import { Datum } from "./types";
 
 type Props = {
   data: Datum;
+  isSelected: boolean;
+  onSelect: (id: string) => void;
 };
 
 function PersonInfo(props: Props) {
-  const { data } = props;
+  const { data, isSelected, onSelect } = props;
   return (
     <li
+      onClick={() => onSelect(data.id)}
       style={{
         display: "flex",
         height: "100px",
@@ -20,7 +24,7 @@ function PersonInfo(props: Props) {
         background: "#fff",
         cursor: "pointer"
       }}
-      className="person-info"
+      className={cn("person-info", isSelected && "selected")}
     >
       <header>
         <h2 className="firstNameLastName">{data.firstNameLastName}</h2>

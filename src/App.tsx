@@ -7,9 +7,16 @@ import { Datum } from "./types";
 
 function App() {
   const [data, setData] = React.useState<Datum[]>([]);
-  const [selected, setSelected] = React.useState<Datum[]>([]);
+  const [selected, setSelected] = React.useState<string[]>([]);
   const [isLoading, setLoading] = React.useState(false);
   const [isError, setError] = React.useState(false);
+
+  const handleSelect = (id: string) => {
+    const currentItem = selected.find(item => item === id);
+    setSelected(s =>
+      currentItem ? s.filter(item => item !== currentItem) : [...selected, id]
+    );
+  };
 
   const fetchData = React.useCallback(async () => {
     if (isLoading) {
@@ -47,8 +54,12 @@ function App() {
         {!isLoading && (
           <ul className="list">
             {data.map(personInfo => (
-              // @ts-ignore
-              <PersonInfo key={personInfo.id} data={personInfo} />
+              <PersonInfo
+                onSelect={handleSelect}
+                key={personInfo.id}
+                data={personInfo}
+                isSelected={selected.includes(personInfo.id)}
+              />
             ))}
           </ul>
         )}
