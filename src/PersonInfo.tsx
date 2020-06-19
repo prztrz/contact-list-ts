@@ -13,6 +13,7 @@ function PersonInfo(props: Props) {
   return (
     <li
       onClick={() => onSelect(data.id)}
+      role="button"
       style={{
         display: "flex",
         height: "100px",
