@@ -1,4 +1,5 @@
 import React from "react";
+import { FixedSizeList as List } from "react-window";
 import apiData from "./api";
 import PersonInfo from "./PersonInfo";
 import Loader from "./components/Loader/Loader";
@@ -71,16 +72,24 @@ function App() {
         {isError && !isLoading && <ErrorAlert onTryAgain={fetchData} />}
 
         {!isLoading && !isError && (
-          <ul className="list">
-            {data.map(personInfo => (
-              <PersonInfo
-                onSelect={handleSelect}
-                key={personInfo.id}
-                data={personInfo}
-                isSelected={selected.includes(personInfo.id)}
-              />
-            ))}
-          </ul>
+          <List
+            innerElementType="ul"
+            height={window.innerHeight - 30}
+            width={350}
+            itemCount={data.length}
+            itemSize={180}
+          >
+            {({ index, style }) => (
+              <li style={style}>
+                <PersonInfo
+                  onSelect={handleSelect}
+                  key={data[index].id}
+                  data={data[index]}
+                  isSelected={selected.includes(data[index].id)}
+                />
+              </li>
+            )}
+          </List>
         )}
       </section>
     </main>
