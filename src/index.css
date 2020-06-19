@@ -50,3 +50,9 @@ code {
   font-size: 14px;
   line-height: 1.8em;
 }
+
+.list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
