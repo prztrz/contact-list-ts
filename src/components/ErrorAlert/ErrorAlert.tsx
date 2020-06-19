@@ -1,10 +1,15 @@
 import React from "react";
 import "./ErrorAlert.css";
 
-const ErrorAlert = () => (
+type Props = {
+  onTryAgain: () => void;
+};
+
+const ErrorAlert = ({ onTryAgain }: Props) => (
   <div className="alert" role="alert">
     <p>
-      Could not download data. <button>Try again</button>
+      Could not download data.{" "}
+      <button onClick={() => onTryAgain()}>Try again</button>
     </p>
   </div>
 );

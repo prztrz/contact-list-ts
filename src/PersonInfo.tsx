@@ -1,11 +1,8 @@
 import React from "react";
+import { Datum } from "./types";
 
 type Props = {
-  data: {
-    firstNameLastName: string;
-    jobTitle: string;
-    emailAddress: string;
-  };
+  data: Datum;
 };
 
 function PersonInfo(props: Props) {
