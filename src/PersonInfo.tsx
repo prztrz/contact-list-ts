@@ -11,7 +11,7 @@ type Props = {
 function PersonInfo(props: Props) {
   const { data, isSelected, onSelect } = props;
   return (
-    <li
+    <div
       onClick={() => onSelect(data.id)}
       role="button"
       style={{
@@ -32,7 +32,7 @@ function PersonInfo(props: Props) {
       </header>
       <div className="jobTitle">{data.jobTitle}</div>
       <div className="emailAddress">{data.emailAddress}</div>
-    </li>
+    </div>
   );
 }
 
