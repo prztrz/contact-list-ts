@@ -6,7 +6,7 @@ type Props = {
 };
 
 const ErrorAlert = ({ onTryAgain }: Props) => (
-  <div className="alert" role="alert">
+  <div className="alert" role="alert" data-testid="error-alert">
     <p>
       Could not download data.{" "}
       <button onClick={() => onTryAgain()}>Try again</button>

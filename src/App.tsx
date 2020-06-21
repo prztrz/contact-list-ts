@@ -29,6 +29,7 @@ function App() {
 
   const handleSelect = (id: string) => {
     const currentItem = selected.find(item => item === id);
+
     const updatedSelected = currentItem
       ? selected.filter(item => item !== currentItem)
       : [...selected, id];
@@ -73,7 +74,9 @@ function App() {
 
         {!isLoading && !isError && (
           <List
-            innerElementType="ul"
+            innerElementType={(
+              props: React.HTMLAttributes<HTMLUListElement>
+            ) => <ul data-testid="people-list" {...props} />}
             height={window.innerHeight - 30}
             width={350}
             itemCount={data.length}
