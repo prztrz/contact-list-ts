@@ -12,6 +12,7 @@ function PersonInfo(props: Props) {
   const { data, isSelected, onSelect } = props;
   return (
     <div
+      data-testid={data.id}
       onClick={() => onSelect(data.id)}
       role="button"
       style={{
